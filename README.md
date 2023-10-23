@@ -11,13 +11,13 @@ This repo is based from: https://github.com/ThomasVitale/supply-chain-security-j
 cosign verify \
    --certificate-identity-regexp https://github.com/vincenzo-racca-pa \
    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-   ghcr.io/vincenzo-racca-pa/demo | jq
+   ghcr.io/vincenzo-racca-pa/sec-supply-chain | jq
 ```
 
 ### Verifying the SLSA provenance for an OCI image
 
 ```shell
-IMAGE=ghcr.io/vincenzo-racca-pa/demo
+IMAGE=ghcr.io/vincenzo-racca-pa/sec-supply-chain
 IMAGE="${IMAGE}@"$(crane digest "${IMAGE}")
 slsa-verifier verify-image "$IMAGE" \
   --source-uri github.com/vincenzo-racca-pa/sec-supply-chain \
